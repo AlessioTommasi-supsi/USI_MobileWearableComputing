@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab1</string>
+    <string name="Button2">Button12</string>
+    <string name="Start">Start</string>
+    <string name="Count">Count</string>
+    <string name="CounterRes">0</string>
+    <string name="counterStarted">The counter has started!</string>
+</resources>

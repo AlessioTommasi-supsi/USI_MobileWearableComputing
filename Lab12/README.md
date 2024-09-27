@@ -32,3 +32,6 @@ We didn’t use this in Lab01 either, but an example could be limiting resource 
 
 ---
 
+**Content Provider**: Allows the sharing of data between different applications. Content providers provide a standard interface for accessing data, such as contacts or media, that can also be used by other apps.
+
+

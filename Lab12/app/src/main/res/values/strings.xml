@@ -4,5 +4,7 @@
     <string name="Start">Start</string>
     <string name="Count">Count</string>
     <string name="CounterRes">0</string>
+    <string name="reset">Reset Counter</string>
     <string name="counterStarted">The counter has started!</string>
+    <string name="counterReset">Resetted Counter</string>
 </resources>

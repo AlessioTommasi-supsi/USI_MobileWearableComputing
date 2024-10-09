@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_footsteps">
+
+    <fragment
+        android:id="@+id/nav_footsteps"
+        android:name="com.example.stepapp.ui.home.HomeFragment"
+        android:label="@string/menu_steps"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_report"
+        android:name="com.example.stepapp.ui.report.ReportFragment"
+        android:label="@string/menu_report"
+        tools:layout="@layout/fragment_gallery" />
+
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.stepapp.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_slideshow" />
+
+
+    <fragment
+        android:id="@+id/nav_new"
+        android:name="com.example.stepapp.ui.newMenuItem.NewFragment"
+        android:label="@string/menu_NEW"
+        tools:layout="@layout/fragment_new" />
+</navigation>

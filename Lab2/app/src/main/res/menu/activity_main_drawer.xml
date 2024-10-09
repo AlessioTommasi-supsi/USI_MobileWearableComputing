@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_footsteps"
+            android:icon="@drawable/footsteps_svgrepo_com"
+            android:title="@string/menu_steps" />
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/report_svgrepo_com"
+            android:title="@string/menu_report" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile_image_svgrepo_com"
+            android:title="@string/menu_profile" />
+        <item
+            android:id="@+id/nav_new"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="@string/menu_NEW" />
+    </group>
+</menu>

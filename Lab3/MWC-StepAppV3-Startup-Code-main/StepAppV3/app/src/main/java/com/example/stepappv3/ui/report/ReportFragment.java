@@ -55,6 +55,7 @@ public class ReportFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // TODO 10 (YOUR TURN): Get entries button
+                StepAppOpenHelper.loadRecords(getContext());
 
             }
         });
@@ -66,7 +67,8 @@ public class ReportFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // TODO 09 (YOUR TURN): TODAY button
-
+                int todaySteps = StepAppOpenHelper.loadSingleRecord(getContext(), currentDay);
+                completedStepsText.setText(""+todaySteps);
             }
         });
 
@@ -76,7 +78,7 @@ public class ReportFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // TODO 11 (YOUR TURN): Delete button
-
+                StepAppOpenHelper.deleteRecords(getContext());
             }
         });
 

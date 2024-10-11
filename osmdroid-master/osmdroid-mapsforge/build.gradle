@@ -1,0 +1,84 @@
+description = "An Android library to display OpenStreetMap views using Mapsforge. May use non ASF licensed dependencies"
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+group = project.property("pom.groupId")
+version =  project.property("pom.version")
+
+android {
+    compileSdkVersion findProperty('android.compileSdkVersion').toInteger()
+
+    defaultConfig {
+        // mapsforge 0.8.0 has minSdk 10
+        minSdkVersion 10
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+
+dependencies {
+    testImplementation "org.junit.vintage:junit-vintage-engine:${project.property('junit.version')}"
+
+    //Mapsforge rendering and database support, which is LGPL
+    api 'org.mapsforge:mapsforge-map-android:0.21.0'
+    api 'org.mapsforge:mapsforge-map:0.21.0'
+    api 'org.mapsforge:mapsforge-themes:0.21.0'
+
+    //osmdroid which is ASF licensed
+    api  project(':osmdroid-android' )
+}
+
+
+
+task androidSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+//    archives packageReleaseJar
+    archives androidSourcesJar
+
+}
+
+afterEvaluate {
+    publishing {
+
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId project.property("pom.groupId")
+                artifactId project.name
+                version = project.property("pom.version")
+                pom {
+                    description =  project.description
+                    url = project.property("pom.url")
+
+                    //scm, organization and developers are injected via other mechanisms
+
+                    licenses {
+                        license {
+                            name=project.property("pom.licenses.license.0.name");
+                            url=project.property("pom.licenses.license.0.url");
+                            distribution==project.property("pom.licenses.license.0.distribution");
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+//apply from: "$rootDir/gradle/javadoc-aar.gradle"

@@ -1,0 +1,49 @@
+description = 'Simple osmdroid based map application'
+
+apply plugin: 'com.android.application'
+apply from: "$rootDir/gradle/android-signing.gradle"
+
+group = project.property("pom.groupId")
+version =  project.property("pom.version")
+
+android {
+    compileSdkVersion findProperty('android.compileSdkVersion').toInteger()
+     defaultConfig {
+
+         applicationId project.group + "." +
+                 project.name.toString().toLowerCase().replaceAll("[-]", ".")
+                         .replaceAll("[^a-zA-Z0-9\\.]", "")
+
+         minSdkVersion Integer.parseInt(project.property('android-minSdkForSupportLib.version'))
+         multiDexEnabled = true
+         compileSdkVersion(project.hasProperty('android.compileSdkVersion')
+                 ? Integer.parseInt(project.property('android.compileSdkVersion')) : 34)
+
+
+         minSdkVersion(14)
+
+
+         targetSdkVersion(project.hasProperty('android.targetSdkVersion')
+                 ? Integer.parseInt(project.property('android.targetSdkVersion')) : 30)
+
+
+         versionCode(project.hasProperty('android.versionCode')
+                 ? Integer.parseInt(project.property('android.versionCode')) : 1)
+
+         versionName project.version
+     }
+
+
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation project(':osmdroid-android')
+}
+
+
+

@@ -517,7 +517,7 @@
 											"font": "Arial;13;1",
 											"left": 752,
 											"top": 149,
-											"width": 161.45361328125,
+											"width": 164.36083984375,
 											"height": 13,
 											"text": "Share"
 										},
@@ -543,7 +543,7 @@
 													"font": "Arial;13;0",
 													"left": 757,
 													"top": 172,
-													"width": 151.45361328125,
+													"width": 154.36083984375,
 													"height": 13
 												},
 												{
@@ -558,7 +558,7 @@
 													"font": "Arial;13;0",
 													"left": 757,
 													"top": 187,
-													"width": 151.45361328125,
+													"width": 154.36083984375,
 													"height": 13
 												},
 												{
@@ -573,21 +573,21 @@
 													"font": "Arial;13;0",
 													"left": 757,
 													"top": 202,
-													"width": 151.45361328125,
+													"width": 154.36083984375,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 752,
 											"top": 167,
-											"width": 161.45361328125,
+											"width": 164.36083984375,
 											"height": 53
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 752,
 									"top": 144,
-									"width": 161.45361328125,
+									"width": 164.36083984375,
 									"height": 76,
 									"nameLabel": {
 										"$ref": "AAAAAAGSmhcZhKT1Cr8="
@@ -729,7 +729,7 @@
 												"$ref": "AAAAAAGSmhpZXKVXrdU="
 											},
 											"font": "Arial;13;0",
-											"left": 938,
+											"left": 941,
 											"top": 200,
 											"height": 13,
 											"alpha": -0.5235987755982988,
@@ -747,7 +747,7 @@
 										"$ref": "AAAAAAGSmhThr6S3Mg8="
 									},
 									"lineStyle": 2,
-									"points": "1032:296;1032:192;913:192",
+									"points": "1032:296;1032:192;916:192",
 									"nameLabel": {
 										"$ref": "AAAAAAGSmhpZXKVYsn4="
 									},
@@ -1057,12 +1057,14 @@
 										"$ref": "AAAAAAGSmhcZhKTy1HY="
 									},
 									"name": "fk_user",
+									"documentation": "nel caso in cui e null deve essere pubblico a tutti!",
 									"type": "INTEGER",
 									"length": 0,
 									"foreignKey": true,
 									"referenceTo": {
 										"$ref": "AAAAAAGSmhUn2aTDkZI="
-									}
+									},
+									"nullable": true
 								}
 							]
 						}

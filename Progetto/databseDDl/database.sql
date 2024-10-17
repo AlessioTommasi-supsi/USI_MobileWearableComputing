@@ -23,15 +23,15 @@ CREATE TABLE `Attachment` (
 
 CREATE TABLE `User` (
     `id` INTEGER NOT NULL,
-    `name` VARCHAR(255) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
+    `name` VARCHAR(255),
+    `email` VARCHAR(255),
     PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `Share` (
     `id` INTEGER NOT NULL,
     `fk_post` INTEGER NOT NULL,
-    `fk_user` INTEGER NOT NULL,
+    `fk_user` INTEGER,
     PRIMARY KEY (`id`)
 );
 

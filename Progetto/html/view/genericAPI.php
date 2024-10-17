@@ -13,9 +13,7 @@ $post = new Post($db);
 
 $data = [
     'users' => $user->getAllUsers(),
-    'posts' => $post->getAllPosts(),
-    'attachments' => $attachment->getAllAttachments(),
-    'shares' => $share->getAllShares()
+    'posts' => $post->getAllPosts()
 ];
 
 echo json_encode($data);

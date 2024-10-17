@@ -1,7 +1,7 @@
 <?php
 class Database {
-    private $host = "localhost";
-    private $db_name = "USI_MobileWearableComputing"; // Cambia con il nome del tuo database
+    private $host = "mysql_usi_mob_comp_project";
+    private $db_name = "USI_MobileWearableComputing";
     private $username = "root";
     private $password = "MYSQL_ROOT_PASSWORD";
     public $conn;

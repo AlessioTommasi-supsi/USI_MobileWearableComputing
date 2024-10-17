@@ -24,8 +24,7 @@ The project is developed using Android Studio and the programming language used 
 ### Installation:
 
 co into root directory of the project where is placed doker compose file and run the following command :
-    
-     doker compose up -d
+     docker-compose up --build
 
 this command will start the bakend and the database on local machine.
 

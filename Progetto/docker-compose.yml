@@ -1,8 +1,10 @@
+version: '3.8'
+
 services:
   mysql_usi_mob_comp_project:
     image: mysql:latest
     container_name: usi_mob_comp_project_container_my_mysql
-    environment: 
+    environment:
       MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: MYSQL_DATABASE
       MYSQL_USER: MYSQL_USER
@@ -21,6 +23,10 @@ services:
     depends_on:
       - mysql_usi_mob_comp_project
     restart: always
+    # Installa le estensioni PHP necessarie
+    build:
+      context: .
+      dockerfile: Dockerfile
 
   phpmyadmin_usi_mob_comp_project:
     image: phpmyadmin/phpmyadmin
@@ -30,4 +36,4 @@ services:
     environment:
       PMA_HOST: mysql_usi_mob_comp_project
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD

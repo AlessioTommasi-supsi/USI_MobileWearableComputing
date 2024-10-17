@@ -14,9 +14,10 @@ The project is developed using Android Studio and the programming language used 
 - Android Studio: https://developer.android.com/studio
 - Doker desktop: https://www.docker.com/products/docker-desktop
 - starUML: https://staruml.io/download
-    - to correct funtionality remembar to install ERD Extension: 
-        - go to Tools > Extension Manager.
-        - Search for ERD extension and install it.
+    - to correct funtionality remembar to install DDL creation Extension: 
+        - go to Tools > Extension Manager install from url.
+        - [copy this link andinstall it this](https://github.com/niklauslee/staruml-ddl/archive/refs/heads/master.zip).
+
 
 
 --- 

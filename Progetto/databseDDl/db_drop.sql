@@ -1,0 +1,1 @@
+DROP DATABASE usi_mob_comp_project;

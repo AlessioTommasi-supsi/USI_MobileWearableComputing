@@ -18,6 +18,8 @@ The project is developed using Android Studio and the programming language used 
         - go to Tools > Extension Manager install from url.
         - [copy this link andinstall it this](https://github.com/niklauslee/staruml-ddl/archive/refs/heads/master.zip).
 
+- postMan : https://www.postman.com/downloads/
+
 
 
 --- 
@@ -45,6 +47,10 @@ database diagram:
 
 ![alt text](img/db.png)
 
+
+### Example API calls:
+
+![alt text](img/genericApi.png)
 
 ## Todo:
 

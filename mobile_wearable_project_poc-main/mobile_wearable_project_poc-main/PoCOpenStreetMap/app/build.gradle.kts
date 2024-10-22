@@ -32,6 +32,8 @@ android {
 }
 
 dependencies {
+    implementation("com.android.volley:volley:1.2.1")
+
     implementation("org.osmdroid:osmdroid-android:6.1.20")
     implementation("org.osmdroid:osmdroid-wms:6.1.20")
     implementation("org.osmdroid:osmdroid-mapsforge:6.1.20")

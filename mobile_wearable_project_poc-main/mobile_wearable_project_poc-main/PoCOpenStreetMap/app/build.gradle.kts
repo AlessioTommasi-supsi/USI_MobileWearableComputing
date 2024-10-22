@@ -33,6 +33,7 @@ android {
 
 dependencies {
     implementation("com.android.volley:volley:1.2.1")
+    implementation("com.google.code.gson:gson:2.8.8")
 
     implementation("org.osmdroid:osmdroid-android:6.1.20")
     implementation("org.osmdroid:osmdroid-wms:6.1.20")

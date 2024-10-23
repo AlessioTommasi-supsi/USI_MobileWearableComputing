@@ -94,9 +94,28 @@ public class  StepCounterListener implements SensorEventListener {
                 // TODO (Assignment 02): Use the STEP_DETECTOR  to count the number of steps
                 // TODO (Assignment 02): The STEP_DETECTOR is triggered every time a step is detected
                 // TODO (Assignment 02): The sensorEvent.values of STEP_DETECTOR has only one value for the detected step count
+                if (sensorEvent.values[0] == 1.0f) {
+                    countSteps("STEP DETECTOR STEPS: ");
+                }
+                break;
 
         }
     }
+
+    private void countSteps(String tag) {
+        accStepCounter += 1;
+        Log.d(tag, String.valueOf(accStepCounter));
+
+        // Update the TextView with the number of steps calculated using STEP_DETECTOR
+        stepCountsView.setText(String.valueOf(accStepCounter));
+
+        // Add the new steps to the database
+        saveStepInDatabase();
+
+        // Set the progress of the CircularProgressIndicator variable
+        progressBar.setProgress(accStepCounter);
+    }
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
@@ -122,18 +141,7 @@ public class  StepCounterListener implements SensorEventListener {
             int downwardSlope = valuesInWindow.get(i) - valuesInWindow.get(i - 1);
 
             if (forwardSlope < 0 && downwardSlope > 0 && valuesInWindow.get(i) > stepThreshold) {
-                accStepCounter += 1;
-                Log.d("ACC STEPS: ", String.valueOf(accStepCounter));
-
-                //TODO 15: Update the TextView with the number of steps calculated using ACC. sensor
-                stepCountsView.setText(String.valueOf(accStepCounter));
-
-                //TODO 17: Add the new steps to the database
-                saveStepInDatabase();
-
-                //TODO 19 (Your Turn): Set the progress of the CircularProgressIndicator variable
-
-                progressBar.setProgress(accStepCounter);
+                countSteps("ACC STEPS: ");
 
             }
         }

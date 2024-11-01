@@ -83,16 +83,8 @@ public class ProfileFragment extends Fragment {
             graph_map.put(day, 0);
         }
 
-
         // TODO 3 (YOUR TURN): Replace the number of steps for each hour in graph_map
-        //  with the number of steps read from the database
-
         graph_map.putAll(stepsByHour);
-        /*Equivalente:
-        for (Map.Entry<Integer, Integer> entry : stepsByHour.entrySet()) {
-            graph_map.put(entry.getKey(), entry.getValue());
-        }
-         */
 
 
         //***** Create column chart using AnyChart library *********/

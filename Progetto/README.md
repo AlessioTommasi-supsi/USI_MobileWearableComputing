@@ -54,3 +54,6 @@ database diagram:
 
 ## Todo:
 
+- Bakand Api documentation visibel [here](https://editor.swagger.io/)
+    - not working
+

@@ -13,8 +13,8 @@ $database = new Database();
 $db = $database->getConnection();
 
 $posts = new Post($db);
-$posts = $posts->getPosts($latitude, $longitude);
-
+//$posts = $posts->getPosts($latitude, $longitude);
+$posts = $posts->getValidPosts($latitude, $longitude);
 
 header('Content-Type: application/json');
 echo json_encode($posts);

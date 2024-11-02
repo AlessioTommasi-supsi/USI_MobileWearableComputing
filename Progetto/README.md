@@ -50,7 +50,7 @@ database diagram:
 
 ### Example API calls:
 
-![alt text](img/genericApi.png)
+![alt text](img/spotApi.png)
 
 ## Todo:
 

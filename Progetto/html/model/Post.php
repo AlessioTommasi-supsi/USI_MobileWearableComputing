@@ -27,21 +27,29 @@ class Post {
     }
 
     public function getPosts($latitude = null, $longitude = null){
-        if ($latitude !== null && $longitude !== null) {
-            $query = "SELECT * FROM " . $this->table_name . " WHERE ST_Distance_Sphere(
-                        point(longitude, latitude),
+        $responce = array();
+        if ($latitude !== null && $longitude !== null ) {
+            $query = "SELECT * FROM " . $this->table_name . ",
+                     gps
+                    WHERE 
+                    gps.id = Post.fk_location AND
+                    ST_Distance_Sphere(
+                        point(gps.longitude, gps.latitude),
                         point(:longitude, :latitude)
                       ) <= visibility_radius";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(':latitude', $latitude);
             $stmt->bindParam(':longitude', $longitude);
+            $stmt->execute();
+            $responce = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         } else {
-            $query = "SELECT * FROM " . $this->table_name;
-            $stmt = $this->conn->prepare($query);
+            //$responce = $this->getAllPosts();
+            $responce = array("error" => "Invalid or missing coordinates");
         }
 
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $responce;
     }
 
 }

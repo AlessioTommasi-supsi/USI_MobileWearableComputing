@@ -45,7 +45,15 @@ class Post {
 
         } else {
             //$responce = $this->getAllPosts();
-            $responce = array("error" => "Invalid or missing coordinates");
+            //$responce = array("error" => "Invalid or missing coordinates");
+            $query = "SELECT * FROM " . $this->table_name . ",
+                     gps
+                    WHERE 
+                    gps.id = Post.fk_location
+                    ";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $responce = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         
@@ -74,11 +82,27 @@ class Post {
             $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         } else {
-            $response = array("error" => "Invalid or missing coordinates");
+            //$response = array("error" => "Invalid or missing coordinates");
+            $query = "SELECT * FROM " . $this->table_name;
+            echo $query;
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $responce = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         return $response;
     }
 
+    public function getDateChekedPosts() {
+        $response = array();
+        $currentDateTime = date('Y-m-d H:i:s');
+        $query = "SELECT * FROM " . $this->table_name . " WHERE expirationDateTime > :currentDateTime";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':currentDateTime', $currentDateTime);
+        $stmt->execute();
+        $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $response;
+    }
+
 }
-?>

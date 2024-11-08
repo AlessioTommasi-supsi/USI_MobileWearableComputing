@@ -1,3 +1,4 @@
+USE USI_MobileWearableProject;
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `Post`;
 DROP TABLE IF EXISTS `Attachment`;
@@ -42,7 +43,8 @@ CREATE TABLE `Share` (
 CREATE TABLE `gps` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `latitude` DECIMAL(20, 10) NOT NULL,
-    `longitude`  DECIMAL(20, 10) NOT NULL
+    `longitude`  DECIMAL(20, 10) NOT NULL,
+    PRIMARY KEY (`id`)
 );
 
 ALTER TABLE `Post` ADD FOREIGN KEY (`fk_creator`) REFERENCES `User`(`id`);

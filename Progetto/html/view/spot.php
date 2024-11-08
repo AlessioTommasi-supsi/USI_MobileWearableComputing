@@ -14,7 +14,9 @@ $db = $database->getConnection();
 
 $posts = new Post($db);
 //$posts = $posts->getPosts($latitude, $longitude);
-$posts = $posts->getValidPosts($latitude, $longitude);
+//$posts = $posts->getValidPosts($latitude, $longitude);
+//$posts = $posts->getAllPosts();
+$posts = $posts->getDateChekedPosts();
 
 header('Content-Type: application/json');
 echo json_encode($posts);

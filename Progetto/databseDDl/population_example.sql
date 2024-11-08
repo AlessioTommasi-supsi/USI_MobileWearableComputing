@@ -1,3 +1,4 @@
+USE USI_MobileWearableProject;
 -- Popolamento della tabella User
 INSERT INTO `User` (`id`, `name`, `email`) VALUES
 (1, 'Mario Rossi', 'mario.rossi@example.com'),

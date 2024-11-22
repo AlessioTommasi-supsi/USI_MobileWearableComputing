@@ -105,4 +105,68 @@ class Post {
         return $response;
     }
 
+    public function get_spot() {
+        $query = "SELECT 
+                    Post.id, 
+                    Post.message, 
+                    Attachment.url AS imageString, 
+                    gps.longitude, 
+                    gps.latitude, 
+                    Post.visibility_radius AS visibilityRangeRadiusInMeters, 
+                    Post.expirationDateTime 
+                  FROM " . $this->table_name . "
+                  JOIN gps ON gps.id = Post.fk_location
+                  JOIN Attachment ON Attachment.id = Post.fk_attachment";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+    
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        return $result;
+    }
+
+    public function addSpot($message, $attachment_url, $attachment_type, $latitude, $longitude, $visibility_radius, $expirationDateTime, $creator_id = 1/*se non messo 1 e user di default */) {
+        try {
+            // Begin transaction
+            $this->conn->beginTransaction();
+            
+    
+            // Insert into gps table
+            $query = "INSERT INTO gps (latitude, longitude) VALUES (:latitude, :longitude)";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':latitude', $latitude);
+            $stmt->bindParam(':longitude', $longitude);
+            $stmt->execute();
+            $fk_location = $this->conn->lastInsertId();
+    
+            // Insert into Attachment table
+            $query = "INSERT INTO Attachment (url, type) VALUES (:url, :type)";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':url', $attachment_url);
+            $stmt->bindParam(':type', $attachment_type);
+            $stmt->execute();
+            $fk_attachment = $this->conn->lastInsertId();
+    
+            // Insert into Post table
+            $query = "INSERT INTO " . $this->table_name . " (message, fk_location, fk_attachment, fk_creator, visibility_radius, expirationDateTime) VALUES (:message, :fk_location, :fk_attachment, :fk_creator, :visibility_radius, :expirationDateTime)";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':message', $message);
+            $stmt->bindParam(':fk_location', $fk_location);
+            $stmt->bindParam(':fk_attachment', $fk_attachment);
+            $stmt->bindParam(':fk_creator', $creator_id);
+            $stmt->bindParam(':visibility_radius', $visibility_radius);
+            $stmt->bindParam(':expirationDateTime', $expirationDateTime);
+            $stmt->execute();
+    
+            // Commit transaction
+            $this->conn->commit();
+            return true;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            // Rollback transaction if something failed
+            $this->conn->rollBack();
+            return false;
+        }
+    }
+
 }

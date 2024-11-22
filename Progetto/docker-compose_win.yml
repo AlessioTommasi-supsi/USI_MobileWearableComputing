@@ -38,12 +38,3 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
   
-  phpmyadmin_usi_mob_comp_project_Mac:
-    image: arm64v8/phpmyadmin
-    container_name: usi_mob_comp_project_container_my_phpmyadmin_Mac
-    ports:
-      - "8082:80"
-    environment:
-      PMA_HOST: mysql_usi_mob_comp_project
-      PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD

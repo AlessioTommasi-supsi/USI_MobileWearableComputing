@@ -1,7 +1,7 @@
 USE USI_MobileWearableProject;
 -- Popolamento della tabella User
 INSERT INTO `User` (`id`, `name`, `email`) VALUES
-(1, 'Mario Rossi', 'mario.rossi@example.com'),
+(1, 'Default_user', 'user not defined because do not implement user functionality'),
 (2, 'Giulia Bianchi', 'giulia.bianchi@example.com'),
 (3, 'Luca Verdi', 'luca.verdi@example.com');
 
@@ -21,22 +21,22 @@ INSERT INTO `gps` (`id`, `latitude`, `longitude`) VALUES
 
 -- Popolamento della tabella Post
 INSERT INTO `Post` (`id`, `message`, `fk_location`, `fk_attachment`, `fk_creator`, `expirationDateTime`, `visibility_radius`) VALUES
-(1, 'Post di esempio 1', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(2, 'Post di esempio 2', 2, 2, 2, '2023-12-31 23:59:59', 200),
-(3, 'Post di esempio 3', 3, 3, 3, '2023-12-31 23:59:59', 300);
+(1, 'Post di esempio 1', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(2, 'Post di esempio 2', 2, 2, 2, '2025-12-31 23:59:59', 200),
+(3, 'Post di esempio 3', 3, 3, 3, '2025-12-31 23:59:59', 300);
 
 -- Aggiunta di 10 post di Mario a Lugano
 INSERT INTO `Post` (`id`, `message`, `fk_location`, `fk_attachment`, `fk_creator`, `expirationDateTime`, `visibility_radius`) VALUES
-(4, 'Post di Mario a Lugano 1', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(5, 'Post di Mario a Lugano 2', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(6, 'Post di Mario a Lugano 3', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(7, 'Post di Mario a Lugano 4', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(8, 'Post di Mario a Lugano 5', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(9, 'Post di Mario a Lugano 6', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(10, 'Post di Mario a Lugano 7', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(11, 'Post di Mario a Lugano 8', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(12, 'Post di Mario a Lugano 9', 1, 1, 1, '2023-12-31 23:59:59', 100),
-(13, 'Post di Mario a Lugano 10', 1, 1, 1, '2023-12-31 23:59:59', 100);
+(4, 'Post di Mario a Lugano 1', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(5, 'Post di Mario a Lugano 2', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(6, 'Post di Mario a Lugano 3', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(7, 'Post di Mario a Lugano 4', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(8, 'Post di Mario a Lugano 5', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(9, 'Post di Mario a Lugano 6', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(10, 'Post di Mario a Lugano 7', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(11, 'Post di Mario a Lugano 8', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(12, 'Post di Mario a Lugano 9', 1, 1, 1, '2025-12-31 23:59:59', 100),
+(13, 'Post di Mario a Lugano 10', 1, 1, 1, '2025-12-31 23:59:59', 100);
 
 
 -- Popolamento della tabella Share

@@ -21,8 +21,8 @@ CREATE TABLE `Post` (
 
 CREATE TABLE `Attachment` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `url` VARCHAR(255) NOT NULL,
-    `type` VARCHAR(255) NOT NULL,
+    `url` LONGTEXT,
+    `type` VARCHAR(255),
     PRIMARY KEY (`id`)
 );
 

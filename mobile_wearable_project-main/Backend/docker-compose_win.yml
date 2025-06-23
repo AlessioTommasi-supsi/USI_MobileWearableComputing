@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mysql_usi_mob_comp_project:
+    image: mysql:latest
+    container_name: usi_mob_comp_project_container_my_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: INSERT_HERE_YOUR_PASSWORD
+      MYSQL_DATABASE: USI_MobileWearableProject
+      MYSQL_USER: MYSQL_USER
+      MYSQL_PASSWORD: INSERT_HERE_YOUR_PASSWORD
+    ports:
+      - "3306:3306"
+    command: --bind-address=0.0.0.0
+
+  php_usi_mob_comp_project:
+    image: php:apache
+    container_name: usi_mob_comp_project_container_my_php
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql_usi_mob_comp_project
+    restart: always
+    # Installa le estensioni PHP necessarie
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  phpmyadmin_usi_mob_comp_project:
+    image: phpmyadmin/phpmyadmin
+    container_name: usi_mob_comp_project_container_my_phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql_usi_mob_comp_project
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+  

@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: GeoLock Android Application API
+  description: For the documentation of the OpenAPI data types see https://swagger.io/docs/specification/v3_0/data-models/data-types.
+  version: 1.0.0
+paths:
+  /spot:
+    post:
+      summary: Add a new spot to the database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpotRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpotResponse'          
+        '400':
+          description: Invalid input
+
+  /get-spots:
+    get:
+      summary: Retrieve all spots from the database
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SpotResponse'
+
+
+ 
+components:
+  schemas:
+    SpotRequest:
+      type: object
+      properties:
+        message:
+          type: string
+        imageString:
+          type: string
+          format: byte
+          description: base64 encoded
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+        visibilityRangeRadiusInMeters:
+          type: integer
+        expirationDateTime:
+          type: string
+          description: YYYY-MM-DD HH:MI:SS
+
+    SpotResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        message:
+          type: string
+        imageString:
+          type: string
+          format: byte
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+        visibilityRangeRadiusInMeters:
+          type: integer
+        expirationDateTime:
+          type: string
+          description: YYYY-MM-DD HH:MI:SS
+          
